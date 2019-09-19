@@ -1,0 +1,5 @@
+The message we want to verify is 1.
+Since the signing is signature = m ^ d (mod n), the signature will always be 1 becuase m is 1.
+So we just put the signature as 1.
+
+Very funny thanks :)

@@ -1,0 +1,7 @@
+This time we notice that e is small (e = 3).
+We notice that the biggest credit card number is 999999999 and that this number to the power of e is less than n.
+So we can say that this solution is correct only for small e.
+We remember that in RSA the encryption is c = m^e (mod n), but in this case, since m^e is less than n, c = m^e.
+So we can take the logarithm of both sides (in my case I chose base 10, doesn't matter).
+Computing the log of this number is not hard computationaly. 
+After all algebra we get m = 10 ^ (log(c) / e)

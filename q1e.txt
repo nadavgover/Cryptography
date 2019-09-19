@@ -1,0 +1,11 @@
+In this section we needed to implement a smarter way to break the cipher text than the brute force method.
+We can take advantage of the fact that we know the encryption algorithm and based on the assumption that the ciphertext is long.
+The way decided here to take advantage of the poor encryption algorithm is to make the cipher text to blocks in the size of the key length. Since every byte of the ciphertext in steps in the size of key length was encrypted with the same byte of the key, we can say that it was encrypted with a key of the length of one!!! Now all we have to do is break the one byte key by brutefoce.
+Well this is not a hard task, we just iterate over all 256 options, take a score and return the best score.
+We obviously need to do that as many times as the length of the key, but every time it is just brute forcing a key with length of 1. This fact makes it a not time consuming method and therefore feasible.
+Again we needed to come up with a scoring method. It was decided to do something similar as before.
+Like before, in section q1c the MSE was taken (see q1c.txt). This alone would be enough if the text was really long. Since the text in the example was not long enough to deduce good statistics data from it, something else was used. 
+This time, unlike q1c, we can not take the number of words (since each block with the same byte of key is not making a word), it was chosen to simply give a better score to a decrypted text with more English letters. This was done using taking its ascii number using ord function.
+
+In conclusion, breaking the ciphertext into blocks of size of key length. taking the character in the same step in a block, these group of characters was encrypted with the same key of length 1. brute forcing each 1 byte length key by giving it a score.
+Putting all the one byte keys together and decrypting the whole ciphertext.  

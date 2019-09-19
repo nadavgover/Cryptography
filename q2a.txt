@@ -1,0 +1,2 @@
+Since we know the pin is a 4 digit number, we can iterate through all possible options and encrypt them using the encryption method of RSA. we can compare each option with the encrypted pin we intercepted.
+Then we returned the matched pin.

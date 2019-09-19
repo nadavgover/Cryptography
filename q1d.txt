@@ -1,0 +1,7 @@
+In this section we needed to implement a brute force breaking algorithm.
+The idea was quite simple. Go through all possible keys, decrypt the ciphertext with each key and give it a score.
+The best score is most probable the correct decryption.
+This was implemented by making a list of all possible keys.
+The possible keys are like a truth table with in the length of the key that each value is between 0-255. 
+Thanks to itertools.product this was not a hard task.
+Using the decryption methid we already implemented and the score method, we gave a score to each decryption and returned the plaintext with the maximal score.

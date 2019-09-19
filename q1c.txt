@@ -1,0 +1,13 @@
+In this section we needed ti implement a way to give a score for a plaintext of it being in english.
+
+The first thing that came to mind was to compare the letter frequency in the plaintext to the well known studied frequency of letters in the English language.
+This idea was actually implemented but with an addition that we will discuss later on.
+The way it was implemeted was creating a histogram of letters in the plain text, afterwards turning this histogram into probabilties by dividing each letter by the number of letters. 
+Then we needed to come up with an error estimation, a way to measure if the frequency of letters is consistent with English.
+The error measure as chosen to be the MSE (mean square average). This was implemented by taking the difference between the frequency of the letters in the plaintext (in the histogram) and the frequency of letters in English. Then squaring this difference.
+Summing all the differences together and dividing by the number of letters to get the mean.
+This gave us a number between 0-1, the closer to zero means less error and therefore means more probable to be english. The demand of the question was to make a score that higher is better so we simply multiply the mse by -1.
+This method alone might work for very long texts, but for not long texts we needed sommehing else.
+So in addition to the mse we also took the averaga length of a word in english. Then by this average we made an estimation of how many words we have in the plaintext (the length of it divided by the average word length). We also took the actual word count (split the plaintext by whitespaces). Then the difference was taken to give us anither measure to the score. The bigger differnece the less chance the text is English.
+At the end we took the difference between the negative part of MSE and the difference of words count.
+Some can argue that those two factors are not equally weighted to estimate English text, and maybe a different weight should be given to each measure. I agree with that statement, but since I'm not a linguistic expert, I decided to leave it as is, it yields good enough results.
